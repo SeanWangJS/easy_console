@@ -1,0 +1,63 @@
+{
+
+  'nickname': {
+    'package1': 'com.haswalk.console.behaviortree.support',
+    'package2': 'com.haswalk.console.test'
+  },
+  'config':{
+  	'Start':{
+  	  'class': 'package1.DefaultNode',
+  	  'transitions':{
+  	    'cmd1':'Cmd1',
+  	    'cmd2':'Cmd2',
+      	'cmd3':'Cmd3',
+      	'cmd4':'Cmd4'  
+  	  }
+    },
+    'Cmd1':{
+      'class': 'package1.DefaultNode'
+    },
+    'Cmd2':{
+      'class': 'package1.DblNode',
+      'transitions':{
+        'd': 'Cmd2_d'
+      }
+    },
+    'Cmd2_d':{
+      'class': 'package1.DblNode',
+      'transitions':{
+        'd': 'Cmd2_d_d'
+      }
+    },
+    'Cmd2_d_d':{
+      'class': 'package2.ActionNode1'
+    },
+    'Cmd3':{
+      'class': 'package1.IntNode',
+      'transitions':{
+        'n':'Cmd3_n'
+      }
+    },
+    'Cmd3_n':{
+      'class': 'package2.ActionNode1',
+      'transitions':{
+        'n':'Cmd3_n_n'
+      }
+    },
+    'Cmd3_n_n':{
+      'class': 'package2.ActionNode2'
+    },
+    'Cmd4':{
+      'class': 'package1.PathNode',
+      'transitions':{
+        'p':'Cmd4_p'
+      }
+    },
+    'Cmd4_p':{
+      'class': 'package2.ActionNode2'
+    }
+    
+    
+  }
+  
+}
